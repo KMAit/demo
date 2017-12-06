@@ -2,6 +2,12 @@ pipeline {
 	agent any
 	
 	stages {
+	
+		stage('Git') {
+			steps {
+				bat 'git fetch'
+			}
+		}
 		stage('Build') {
 			steps {
 				bat 'mvn -B -DskipTests clean package'
