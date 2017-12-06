@@ -23,5 +23,11 @@ pipeline {
 				bat 'dir /S target'
 			}
 		}
+		
+		stage('Tomcat') {
+			steps {
+				bat 'mvn tomcat:deploy'
+			}
+		}
 	}
 }
