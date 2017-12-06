@@ -2,12 +2,6 @@ pipeline {
 	agent any
 	
 	stages {
-	
-		stage('Git') {
-			steps {
-				bat 'git fetch'
-			}
-		}
 		stage('Build') {
 			steps {
 				bat 'mvn -B -DskipTests clean package'
@@ -23,8 +17,7 @@ pipeline {
 				bat 'dir /S target'
 			}
 		}
-		
-		stage('Tomcat') {
+		stage('Tomcat Deploy') {
 			steps {
 				bat 'mvn tomcat:deploy'
 			}
